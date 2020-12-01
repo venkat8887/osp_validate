@@ -1,5 +1,5 @@
 data "openstack_networking_secgroup_v2" "sec_group" {
-  name       = openstack_networking_secgroup_v2.sec_group.name
+  id         = openstack_networking_secgroup_v2.sec_group.id
   tenant_id  = var.tenant_id
   depends_on = [openstack_networking_secgroup_v2.sec_group]
 

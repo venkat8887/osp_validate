@@ -9,6 +9,8 @@ One can use this terraform code to validate the working of existing OpenStack en
   - Neutron router
   - Cinder volume
   - Nova instance
+  - Keypair
+  - Security group
 ---
 
 ## Usage:

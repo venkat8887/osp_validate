@@ -1,38 +1,38 @@
 variable "osp_auth_url" {
   description = "OSP authentication URL"
-  type = string
+  type        = string
 }
 
 variable "osp_region" {
   description = "OSP region"
-  type = string
+  type        = string
 }
 
 variable "osp_user_name" {
   description = "User name to use for OSP authentication"
-  type = string
+  type        = string
 }
 
 variable "osp_user_password" {
   description = "User password to use for OSP authentication"
-  type = string
+  type        = string
 }
 
 variable "tenant_id" {
   description = "OSP project to use"
-  type = string
+  type        = string
 }
 
 variable "ticket_id" {
   description = "Random ID / ticket ID to append to the OSP resource"
-  default = "201120-05552"
-  type = string
+  default     = "201120-05552"
+  type        = string
 }
 
 variable "prefix" {
   description = "Prefix to the OSP resource"
-  default = "rax"
-  type = string
+  default     = "rax"
+  type        = string
 }
 variable "image_id" {
   description = "Glance image to use to boot the instance"
@@ -44,32 +44,32 @@ variable "ssh_public_key" {
 
 variable "ssh_private_key" {
   description = "Absolute path of the ssh private key"
-  default = null
+  default     = null
 }
 
 variable "boot_from_volume" {
   description = "Boot the instance from volume"
-  default = false
-  type = bool
+  default     = false
+  type        = bool
 }
 
 variable "image_user_name" {
   description = "SSH username to access the instance"
-  default = "centos"
+  default     = "centos"
 }
 
 variable "volume_type" {
   description = "Cinder volume type"
-  default = null
+  default     = null
 }
 
 variable "volume_size" {
   description = "Cinder volume size"
-  default = 10
+  default     = 10
 }
 
 variable "az_host" {
   description = "Compute host to spawn an instance. Format: az:host"
-  default = null
-  type = string
+  default     = null
+  type        = string
 }

@@ -4,8 +4,8 @@ variable "prefix" {
 
 variable "random_id" {
   description = "Random ID / ticket ID to append to the OSP resource"
-  default = "201120-05552"
-  type = string
+  default     = "201120-05552"
+  type        = string
 }
 
 variable "network_cidr" {
@@ -16,7 +16,7 @@ variable "tenant_id" {
 }
 
 variable "sec_group_description" {
-  type = string
+  type    = string
   default = "Security group"
 }
 
@@ -29,11 +29,11 @@ variable "sec_group_rule_target_ports" {
 }
 
 variable "protocol" {
-  type = string
+  type    = string
   default = "tcp"
 }
 
 variable "remote_ip" {
-  type = any
+  type    = any
   default = "0.0.0.0/0"
 }

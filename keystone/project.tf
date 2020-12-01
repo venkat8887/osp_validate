@@ -3,5 +3,5 @@ locals {
 }
 
 resource "openstack_identity_project_v3" "project" {
-  name        = local.project_name
+  name = local.project_name
 }

@@ -3,7 +3,7 @@ locals {
 }
 
 resource "openstack_networking_router_v2" "router" {
-  name = local.router_name
+  name                = local.router_name
   external_network_id = data.openstack_networking_network_v2.get_external_network.id
 }
 

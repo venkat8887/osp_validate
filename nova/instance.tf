@@ -1,23 +1,23 @@
 module "neutron" {
-  source = "../neutron"
+  source    = "../neutron"
   tenant_id = var.tenant_id
 }
 
 module "cinder" {
-  source = "../cinder"
+  source           = "../cinder"
   boot_from_volume = var.boot_from_volume
 }
 
 locals {
   instance_name = "${var.prefix}_instance_${var.random_id}"
-  floating_ip = openstack_networking_floatingip_v2.fip_1.address
+  floating_ip   = openstack_networking_floatingip_v2.fip_1.address
 }
 resource "openstack_compute_instance_v2" "instance_i1_image" {
-  name = local.instance_name
-  image_id        = var.image_id
-  flavor_id       = openstack_compute_flavor_v2.compute_flavor.id
-  key_pair        = openstack_compute_keypair_v2.keypair_k1.id
-  security_groups = [module.neutron.security_group_id]
+  name              = local.instance_name
+  image_id          = var.image_id
+  flavor_id         = openstack_compute_flavor_v2.compute_flavor.id
+  key_pair          = openstack_compute_keypair_v2.keypair_k1.id
+  security_groups   = [module.neutron.security_group_id]
   availability_zone = var.az_host
   network {
     uuid = module.neutron.internal_network_id
@@ -26,10 +26,10 @@ resource "openstack_compute_instance_v2" "instance_i1_image" {
 }
 
 resource "openstack_compute_instance_v2" "instance_i1_volume" {
-  name = local.instance_name
-  flavor_id       = openstack_compute_flavor_v2.compute_flavor.id
-  key_pair        = openstack_compute_keypair_v2.keypair_k1.id
-  security_groups = [module.neutron.security_group_id]
+  name              = local.instance_name
+  flavor_id         = openstack_compute_flavor_v2.compute_flavor.id
+  key_pair          = openstack_compute_keypair_v2.keypair_k1.id
+  security_groups   = [module.neutron.security_group_id]
   availability_zone = var.az_host
 
   network {
@@ -52,20 +52,20 @@ resource "openstack_networking_floatingip_v2" "fip_1" {
 
 resource "openstack_compute_floatingip_associate_v2" "fip_image" {
   floating_ip = local.floating_ip
-  instance_id = openstack_compute_instance_v2.instance_i1_image[0].id 
-  count = var.boot_from_volume ? 0 : 1
+  instance_id = openstack_compute_instance_v2.instance_i1_image[0].id
+  count       = var.boot_from_volume ? 0 : 1
 }
 
 resource "openstack_compute_floatingip_associate_v2" "fip_volume" {
   floating_ip = local.floating_ip
-  instance_id = openstack_compute_instance_v2.instance_i1_volume[0].id 
-  count = var.boot_from_volume ? 1 : 0
+  instance_id = openstack_compute_instance_v2.instance_i1_volume[0].id
+  count       = var.boot_from_volume ? 1 : 0
 }
 
 resource "openstack_compute_volume_attach_v2" "attach_volume" {
   instance_id = openstack_compute_instance_v2.instance_i1_image[0].id
-  volume_id = module.cinder.volume_id
-  count = var.boot_from_volume ? 0 : 1
+  volume_id   = module.cinder.volume_id
+  count       = var.boot_from_volume ? 0 : 1
   provisioner "remote-exec" {
     on_failure = continue
     inline = [
@@ -75,9 +75,9 @@ resource "openstack_compute_volume_attach_v2" "attach_volume" {
     ]
 
     connection {
-      timeout = "2m"
-      host = local.floating_ip
-      user = var.image_user_name
+      timeout     = "2m"
+      host        = local.floating_ip
+      user        = var.image_user_name
       private_key = var.ssh_private_key != null ? file(var.ssh_private_key) : null
     }
   }

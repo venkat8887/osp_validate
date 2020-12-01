@@ -1,18 +1,18 @@
 ## OpenStack environment details for authentication
-osp_auth_url = "<OS_AUTH_URL>"
-osp_region = "<OS_REGION_NAME>"
-osp_user_name = "<OS_USERNAME>"
+osp_auth_url      = "<OS_AUTH_URL>"
+osp_region        = "<OS_REGION_NAME>"
+osp_user_name     = "<OS_USERNAME>"
 osp_user_password = "<OS_PASSWORD>"
-tenant_id = "<OS_PROJECT_ID>"
+tenant_id         = "<OS_PROJECT_ID>"
 
 ## OpenStack resource details
-image_id = "<GLANCE_IMAGE_ID>"
+image_id        = "<GLANCE_IMAGE_ID>"
 image_user_name = "<GLANCE_IMAGE_USER_NAME>"
-ssh_public_key = "<SSH_PUBLIC_KEY_PATH>"
+ssh_public_key  = "<SSH_PUBLIC_KEY_PATH>"
 ssh_private_key = "<SSH_PRIVATE_KEY_PATH>"
 
 boot_from_volume = true
-ticket_id = "201120-05552"
+ticket_id        = "201120-05552"
 
 ## Below are the extra parameters which you can override as per the requirement
 ## In order to override the parameter, uncomment and specify the value

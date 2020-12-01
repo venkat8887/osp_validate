@@ -21,7 +21,7 @@ One can use this terraform code to validate the working of existing OpenStack en
 $ git clone https://github.com/pratik705/osp_validate.git
 $ cd osp_validate
 ```
-- Set appropriate variables specific to your OpenStack environment in `terraform.tfvars` file.
+- Set appropriate variables specific to your OpenStack environment in [terraform.tfvars](https://github.com/pratik705/osp_validate/blob/main/terraform.tfvars) file.
 
 | Variable          | Description                                                                    | Default          | Required  |
 |-------------------|--------------------------------------------------------------------------------|------------------|-----------|

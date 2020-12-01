@@ -60,6 +60,11 @@ variable "volume_size" {
   type        = number
 }
 
+variable "volume_type" {
+  description = "Volume type"
+  default     = null
+}
+
 variable "az_host" {
   description = "Compute host to spawn an instance. Format: az:host"
   default     = null

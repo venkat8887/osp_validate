@@ -8,6 +8,10 @@ module "neutron" {
 module "cinder" {
   source           = "../cinder"
   boot_from_volume = var.boot_from_volume
+  prefix = var.prefix
+  random_id = var.random_id
+  volume_size = var.volume_size
+  volume_type = var.volume_type
 }
 
 locals {

@@ -3,14 +3,14 @@ Validate the OSP environment by creating a test resources
 
 One can use this terraform code to validate the working of existing OpenStack environment. The state of the OpenStack environment will be validated by creating following OpenStack resources:
 
-  - Glance image
   - Neutron network
   - Neutron subnet
   - Neutron router
-  - Cinder volume
-  - Nova instance
   - Keypair
   - Security group
+  - Floating IP
+  - Cinder volume
+  - Nova instance
 ---
 
 ## Usage:
